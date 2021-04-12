@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title> 8 Bits Sound Classics </title>
+  </head>
+  
+  <body background="images/fundo2.jpg">
+
+  <div class="container">
+
+  	<div class="row">
+
+  	<div class="col-md-2 col-lg-2"></div>
+  	<div class="col-md-8 col-lg-8 mt-4"> 
+
+  		 <div class="text-center img-thumbnail">
+        <!-- <img src="images/ng.gif" width="95" class="mr-5 img-fluid"> -->
+  			<img src="images/wave.gif" width="150">
+  			<img src="images/alex.gif" width="60" class="ml-5 img-fluid">
+        
+  <!-- Nome  do site -->
+        
+        <h3 class="nomeSite">8 Bits Sound Classics</h3>
+
+		</div>
+
+<!-- Player -->
+
+		<div class="text-center bg-info">	
+
+		  	<audio src="musicas/ninjagaiden/001.mp3" controls id="player" onEnded="prox()">
+					  <p>Seu nevegador não suporta o elemento audio.</p>
+			</audio>	
+
+		</div>
+
+<!-- Controles Voltar e Prox. do Player -->
+
+		<div class="text-center bg-info">
+			   <img src="images/icons/voltar.png" width="50" onclick="voltar()" class="btnLink img-fluid">
+			   <img src="images/icons/prox.png" width="50" onclick="prox()" class="btnLink img-fluid">
+		</div>
+    <hr/>
+      
+ <!--  Tela Mobile --> 
+      
+   <div class="d-block d-md-none d-xl-none text-center" style="overflow: scroll; height: 300px">
+     
+      <img src="images/capas/ninjagaiden.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'ninjagaiden' )">
+      <img src="images/capas/alexkid.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'alexkid' )">
+      <img src="images/capas/castleofilusion.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'castleofilusion' )">
+      <img src="images/capas/renegade.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'renegade' )">
+      <img src="images/capas/sonic.jpg" width="300" class="img-fluid img-thumbnail mb-5" onclick="mudaLista( 'sonic' )">
+      <img src="images/capas/master.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'master' )">
+      <img src="images/capas/kenseiden.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'kenseiden' )">
+      <img src="images/capas/double.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'double' )">
+     
+  </div>  
+
+ <!-- Tela  Desktop -->
+      
+ <div class="d-none d-md-block d-xl-block">
+      
+	<div class="row">		
+
+		<div class="col-md-3 col-lg-3150">
+			<img src="images/capas/ninjagaiden.jpg" width="150" class="img-thumbnail mb-3" onclick="mudaLista( 'ninjagaiden' )">
+		</div>	
+
+		<div class="col-md-3">
+			<img src="images/capas/alexkid.jpg" width="150" class="img-thumbnail mb-3" onclick="mudaLista( 'alexkid' )">
+		</div>
+
+		<div class="col-md-3">
+			<img src="images/capas/castleofilusion.jpg" width="150" class="img-thumbnail mb-3" onclick="mudaLista( 'castleofilusion' )">
+		</div>
+
+		<div class="col-md-3">
+			<img src="images/capas/renegade.jpg" width="150" class="img-thumbnail mb-3" onclick="mudaLista( 'renegade' )">
+		</div>
+
+	</div>	
+
+	<div class="row">
+
+		<div class="col-md-3">
+			<img src="images/capas/sonic.jpg" width="150" class="img-thumbnail" onclick="mudaLista( 'sonic' )">
+		</div>	
+
+		<div class="col-md-3">
+			<img src="images/capas/master.jpg" width="150" class="img-thumbnail" onclick="mudaLista( 'master' )">
+		</div>
+
+		<div class="col-md-3">
+			<img src="images/capas/kenseiden.jpg" width="150" class="img-thumbnail" onclick="mudaLista( 'kenseiden' )">
+		</div>
+
+		<div class="col-md-3">
+			 <img src="images/capas/double.jpg" width="300" class="img-fluid img-thumbnail mb-2" onclick="mudaLista( 'double' )">
+		</div>
+			
+	</div>
+	
+	
+	</div>	
+	<div class="col-md-2"></div>
+      
+</div>
+      
+  <!-- Tela  Desktop -->
+	
+	<script>
+
+     // Funcões do Player.
+    
+		var pasta 	    = "musicas/";
+    var lista       = 'ninjagaiden';
+		var index       = 0	
+		var playList    = ["001.mp3", "002.mp3", "003.mp3", "004.mp3", "005.mp3"];
+		var player      = document.querySelector('#player');
+		var limiteArray = playList.length;
+
+		function prox()
+		{
+			  if (index == limiteArray - 1) {
+            index  = -1;
+        }	
+      
+        index = index  + 1;
+				player.src = pasta + lista + '/' +  playList[index];
+				player.play();
+		}
+
+
+		function voltar()
+		{
+			  if (index == 0) {
+            index  = limiteArray;
+        }		
+     
+        index = index  - 1;
+				player.src = pasta + lista + '/' +  playList[index];
+				player.play();
+		}
+
+		function mudaMusica( index )
+		{
+				//index = index  + 1;
+				player.src = pasta + lista + '/' + playList[index];
+				player.play();
+		}
+    
+    function mudaLista( novaLista )
+    {
+         index = 0;
+         lista = novaLista; 
+         player.src = pasta +  lista + '/' +  playList[index];
+				 player.play();
+    }
+
+	</script>	
+
+
+  </div>	
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
+

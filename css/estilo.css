@@ -1,0 +1,18 @@
+@font-face {
+     font-family: bits;
+     src: url('../fonts/bits.ttf');
+}
+
+.nomeSite {
+
+	font-family: 'bits';
+	font-size: 		22px;
+	margin-top: 	10px;
+	margin-bottom:	25px;
+}
+
+
+.btnLink:hover{
+	cursor: pointer;
+
+}
